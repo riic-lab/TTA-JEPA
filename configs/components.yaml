@@ -1,0 +1,26 @@
+# Component defaults, not an executable experiment configuration.
+timestep:
+  width: 512
+transformer:
+  width: 512
+  n_layers: 3
+  n_heads: 8
+  n_kv_heads: 8
+  max_positions: 8192
+projection:
+  input_dim: 512
+  hidden_dim: 512
+  output_dim: 256
+ema:
+  momentum: 0.996
+downstream:
+  hidden_dim: 256
+  dropout: 0.0
+  horizons:
+    circulatory_failure: 8
+    respiratory_failure: 24
+    kidney_failure: 48
+    liver_failure: 48
+    hyperglycemia: 8
+    sepsis3: 8
+    decompensation: 24

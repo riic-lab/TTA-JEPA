@@ -1,0 +1,22 @@
+extends: tte_jepa.yaml
+method: icarefm
+model:
+  width: 512
+  n_layers: 3
+  n_heads: 8
+  horizon: 48
+  dropout: 0.0
+  tte_hidden: 256
+pretraining:
+  objective: next_state
+  min_context_hours: 1
+  betas: [0.9, 0.999]
+  selection_start_epoch: 1
+tte_training:
+  epochs: 100
+  min_context_hours: 6
+  anchors_per_admission: 16
+  validation_draws: 3
+  selection_start_epoch: 1
+  patience: 2
+  betas: [0.9, 0.95]

@@ -1,0 +1,11 @@
+extends: tte_jepa.yaml
+method: ehrmamba
+model:
+  width: 512
+  n_layers: 6
+  horizon: 48
+  tte_hidden: 256
+pretraining:
+  objective: tte
+  selection_start_epoch: 1
+  patience: 2

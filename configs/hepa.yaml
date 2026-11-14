@@ -1,0 +1,18 @@
+extends: tte_jepa.yaml
+method: hepa
+model:
+  width: 512
+  n_layers: 3
+  n_heads: 8
+  n_kv_heads: 8
+  max_positions: 8192
+  horizon: 48
+pretraining:
+  objective: hepa
+  anchors_per_admission: 16
+  sigreg_alpha: 0.05
+  sigreg_slices: 256
+  sigreg_points: 17
+  sigreg_chunk: 32
+  sigreg_reference_batch: 256
+  sigreg_min_samples: 3

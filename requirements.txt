@@ -1,0 +1,8 @@
+torch>=2.5
+numpy
+polars
+safetensors
+PyYAML
+scikit-learn
+pandas
+xgboost>=3.0

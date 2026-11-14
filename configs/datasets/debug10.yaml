@@ -1,0 +1,9 @@
+# Use the supplied debug dataset; do not silently sample another cohort.
+dataset_profile: debug10
+pretraining:
+  epochs: 1
+  val_interval: 1
+  selection_start_epoch: 1
+finetuning:
+  epochs: 1
+  val_interval: 1

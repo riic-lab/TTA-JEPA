@@ -1,0 +1,2 @@
+# Install a mamba-ssm build that exports Mamba3 for your CUDA/PyTorch environment.
+mamba-ssm>=2.3
