@@ -1,2 +1,14 @@
 # Configuration inventory
-`tte_jepa.yaml` defines shared training and downstream settings. `icarefm.yaml`, `hepa.yaml`, `ehrmamba.yaml`, and `xgboost.yaml` inherit them and replace the model definition. `datasets/joint.yaml`, `datasets/mono.yaml`, and `datasets/debug10.yaml` provide profile overrides; debug10 runs one epoch per neural stage on separately prepared inputs. `components.yaml` lists standalone component defaults, not a runnable experiment. Dataset paths and the required seed are CLI arguments, not recorded defaults.
+Choose a model with `--model`; use `--config` to supply an alternative YAML for that model.
+
+| Configuration     | Purpose                                            |
+| ----------------- | -------------------------------------------------- |
+| `tte_jepa.yaml`   | TTE-JEPA architecture and shared training settings |
+| `icarefm.yaml`    | ICareFM next-state and TTE training                |
+| `hepa.yaml`       | HEPA alignment and SIGReg training                 |
+| `ehrmamba.yaml`   | EHRMamba TTE training                              |
+| `xgboost.yaml`    | MEDS-TAB feature extraction and XGBoost fitting    |
+| `components.yaml` | Standalone defaults for component smoke checks     |
+Baseline configurations inherit `tte_jepa.yaml` through `extends`. Model definitions are replaced; other configuration sections are merged by key.
+Select the data profile with `--dataset joint`, `mono`, or `debug10`. The corresponding file in `datasets/` is applied after the model configuration. `debug10` runs one epoch per neural stage on a separately prepared small dataset.
+Supply dataset paths, output directory, device, and the required seed through the CLI. Model configurations contain no default seed or dataset paths. See [the usage examples](../README.md#training-and-evaluation) and [the input contract](../DATA_FORMAT.md).
